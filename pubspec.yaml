@@ -1,0 +1,25 @@
+name: vibration_flutter
+description: A game-style vibration and haptic feedback system for Flutter apps.
+version: 1.1.0
+homepage: https://github.com/tanvishingala29/vibration_flutter
+repository: https://github.com/tanvishingala29/vibration_flutter
+
+environment:
+  sdk: ^3.10.4
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  shared_preferences: ^2.5.5
+  vibration: ^3.1.3  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  vibration_platform_interface: ^0.1.2
+
+
+flutter:
+
