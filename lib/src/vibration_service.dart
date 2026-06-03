@@ -56,10 +56,7 @@ class HapticPattern {
   final List<int>? amplitudes;
 
   /// Creates a custom [HapticPattern].
-  const HapticPattern({
-    required this.timings,
-    this.amplitudes,
-  });
+  const HapticPattern({required this.timings, this.amplitudes});
 
   /// A pre-made double tap pattern.
   static const HapticPattern doubleTap = HapticPattern(
@@ -257,12 +254,15 @@ class HapticService {
   /// Plays a custom user-defined [HapticPattern].
   static Future<void> playPattern(HapticPattern pattern) async {
     if (!_enabled) return;
-    await _vibrate(
-      pattern: pattern.timings,
-      intensities: pattern.amplitudes,
-    );
-  }
 
+    assert(
+      pattern.amplitudes == null ||
+          pattern.amplitudes!.length == pattern.timings.length,
+      "Timings and amplitudes must match",
+    );
+
+    await _vibrate(pattern: pattern.timings, intensities: pattern.amplitudes);
+  }
   // ───────────────────────── UI FEEDBACK (BACKWARD COMPATIBLE) ─────────────────────────
 
   /// Triggers a short, high-fidelity light vibration (e.g. key press).
@@ -289,10 +289,7 @@ class HapticService {
 
   /// Event feedback for successful operations.
   static Future<void> success() async {
-    await _vibrate(
-      pattern: [0, 40, 30, 80],
-      intensities: [0, 100, 0, 200],
-    );
+    await _vibrate(pattern: [0, 40, 30, 80], intensities: [0, 100, 0, 200]);
   }
 
   /// Event feedback for failed operations or errors.
@@ -313,9 +310,6 @@ class HapticService {
 
   /// Rhythmic bounce feedback for coin collect items.
   static Future<void> coin() async {
-    await _vibrate(
-      pattern: [0, 30, 20, 60],
-      intensities: [0, 120, 0, 255],
-    );
+    await _vibrate(pattern: [0, 30, 20, 60], intensities: [0, 120, 0, 255]);
   }
 }

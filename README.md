@@ -4,6 +4,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Platform Support](https://img.shields.io/badge/platform-android%20%7C%20ios%20%7C%20web%20%7C%20macos-lightgrey?style=flat-square)](#)
 
+<p align="center">
+  <img width="800" src="https://raw.githubusercontent.com/tanvishingala29/vibration_flutter/main/assets/banner.png" />
+</p>
+
 A high-performance, hybrid vibration and haptic feedback system for Flutter apps and games. It blends native system-level haptics (crisp, zero-latency via Flutter SDK) with custom timing patterns and customized amplitudes (via the `vibration` plugin) to deliver the ultimate cross-platform tactile feel.
 
 ---
